@@ -1,3 +1,2 @@
 # strukturinis-programavimas
- kazaks asasdasdjkdfngo;anfg
-adfgadfg
+1234356778907
