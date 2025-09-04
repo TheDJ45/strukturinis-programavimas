@@ -1,1 +1,3 @@
-# strukt-rinis-programavimas
+# strukturinis-programavimas
+ kazaks asasdasdjkdfngo;anfg
+adfgadfg
