@@ -1,4 +1,2 @@
 # strukturinis-programavimas
-1234356778907
-mazas pakeitimas
-dar mazesnis pakeitimas
+testas2.cpp. 1 praktine uzduotis
