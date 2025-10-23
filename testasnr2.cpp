@@ -15,31 +15,31 @@ int main(){
     
     
     do {
-        cout << "1. Pridėti studentą\n";
-        cout << "2. Rodyti visus studentus\n";
-        cout << "3. Rodyti konkretaus studento pažymius\n";
-        cout << "4. Atnaujinti studento pažymį\n";
-        cout << "5. Pašalinti studentą\n";
-        cout << "0. Išeiti\n";
-        cout << "Pasirinkite veiksmą: ";
+        cout << "1. Prideti studenta"<<endl;
+        cout << "2. Rodyti visus studentus"<<endl;
+        cout << "3. Rodyti konkretaus studento pazymius"<<endl;
+        cout << "4. Atnaujinti studento pazymi"<<endl;
+        cout << "5. Pasalinti studenta"<<endl;
+        cout << "0. Iseiti"<<endl;
+        cout << "Pasirinkite veiksma:"<<endl;
         cin >> pasirinkimas;
     
         switch (pasirinkimas){
             case 1:{
                 if (studentuSk >= studentaimax) {
-                    cout << "Pasiektas maksimalus studentų skaičius.\n";
+                    cout << "Pasiektas maksimalus studentu skaicius.\n";
                     break;
                 }
                 {
-                 cout << "Įveskite studento vardą (be tarpų): ";
+                 cout << "Iveskite studento varda: ";
                  cin >> vardai[studentuSk];
                 
-                 cout << "Kiek pažymių norite įvesti (iki 10): ";
+                 cout << "Kiek pažymių norite ivesti (iki 10): ";
                  cin >> kiekPazymiu[studentuSk];
                  if (kiekPazymiu[studentuSk] > maxpazymiai)
                      kiekPazymiu[studentuSk] = maxpazymiai;
                 for (int j = 0; j < kiekPazymiu[studentuSk]; j++) {
-                    cout << "Pažymys " << j + 1 << ": ";
+                    cout << "Pazymys " << j + 1 << ": ";
                     cin >> pazymiai[studentuSk][j];
                 }
             }
@@ -69,7 +69,7 @@ int main(){
                     break;
                 }
                 char vardas[maxvardas];
-                cout << "Įveskite studento vardą: ";
+                cout << "Iveskite studento varda: ";
                 cin >> vardas;
                 int rasvard = -1;
                 for (int i = 0; i < studentuSk; i++){
@@ -102,7 +102,7 @@ int main(){
                     break;
                 }
                 char vardas[maxvardas];
-                cout << "Įveskite studento vardą: ";
+                cout << "Iveskite studento varda: ";
                 cin >> vardas;
                 int rasvard = -1;
                 for (int i = 0; i < studentuSk; i++){
@@ -126,14 +126,14 @@ int main(){
                     cout << j + 1 << ". " << pazymiai[rasvard][j] <<endl;
             }
                 int nr;
-                cout << "Įveskite pažymio numerį, kurį norite pakeisti: ";
+                cout << "Iveskite pazymio numeri, kuri norite pakeisti: ";
                 cin >> nr;
                 if (nr < 1 || nr > kiekPazymiu[rasvard]){
-                    cout << "Neteisingas pažymio numeris.\n";
+                    cout << "Neteisingas pazymio numeris.\n";
                 }else {
-                    cout << "Įveskite naują pažymį: ";
+                    cout << "Iveskite nauja pazymi: ";
                     cin >> pazymiai[rasvard][nr - 1];
-                    cout << "Pažymys atnaujintas.\n";
+                    cout << "Pazymys atnaujintas.\n";
                 }
             }
                 break;
@@ -144,7 +144,7 @@ int main(){
                     break;
                 }
                 char vardas[maxvardas];
-                cout << "Įveskite studento vardą, kurį norite pašalinti: ";
+                cout << "Iveskite studento varda, kuri norite pasalinti: ";
                 cin >> vardas;
                 int rasvard = -1;
                 for (int i = 0; i < studentuSk; i++){
@@ -173,17 +173,18 @@ int main(){
                 }
             }
             studentuSk--;
-            cout << "Studentas pašalintas.\n";
+            cout << "Studentas pasalintas.\n";
         }
                 break;
             }
 
             case 0:
-                cout << "Išeinama iš programos.\n";
+                cout << "Iseinama is programos.\n";
                 break;
             default:
              cout << "Neteisingas pasirinkimas.\n";
                 break;
     }
     } while (pasirinkimas != 0);
+    return 0;
 }
