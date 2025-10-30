@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 
-const int studentaimax = 100;
-const int maxpazymiai = 10;
+const int studentaimax = 3;
+const int maxpazymiai = 3;
 const int maxvardas = 51;
-
+int maxpaz = 10;
+int minpaz = 1;
 int main(){
     char vardai [studentaimax] [maxvardas];
     int pazymiai [studentaimax][maxpazymiai];
@@ -30,19 +31,27 @@ int main(){
                     cout << "Pasiektas maksimalus studentu skaicius.\n";
                     break;
                 }
-                {
+                
                  cout << "Iveskite studento varda: ";
                  cin >> vardai[studentuSk];
                 
-                 cout << "Kiek pažymių norite ivesti (iki 10): ";
+                 cout << "Kiek pažymių norite ivesti: ";
                  cin >> kiekPazymiu[studentuSk];
                  if (kiekPazymiu[studentuSk] > maxpazymiai)
                      kiekPazymiu[studentuSk] = maxpazymiai;
                 for (int j = 0; j < kiekPazymiu[studentuSk]; j++) {
+                    do{
                     cout << "Pazymys " << j + 1 << ": ";
                     cin >> pazymiai[studentuSk][j];
+                    if (pazymiai[studentuSk][j] < minpaz || pazymiai[studentuSk][j] > maxpaz){
+                        cout<<"Maksimalus galimas pazymys yra "<<maxpaz<<endl;
+
+                    }
+                    
+                    }while(pazymiai[studentuSk][j] < 1 || pazymiai[studentuSk][j] > maxpaz);
                 }
-            }
+
+            
                 studentuSk++;
 
                 break;
@@ -107,7 +116,7 @@ int main(){
                 int rasvard = -1;
                 for (int i = 0; i < studentuSk; i++){
                     int vienod = 1;
-                    for (int k = 0; vardai[i][k] != '\0' || vardas[k] != '\0'; k++){
+                    for (int k = 0; vardai[i][k] != '\0' && vardas[k] != '\0'; k++){
                         if (vardai[i][k] != vardas[k]){
                             vienod = 0;
                             break;
@@ -131,9 +140,16 @@ int main(){
                 if (nr < 1 || nr > kiekPazymiu[rasvard]){
                     cout << "Neteisingas pazymio numeris.\n";
                 }else {
-                    cout << "Iveskite nauja pazymi: ";
-                    cin >> pazymiai[rasvard][nr - 1];
-                    cout << "Pazymys atnaujintas.\n";
+                    do{
+                        cout << "Iveskite nauja pazymi: ";
+                        cin >> pazymiai[rasvard][nr - 1];
+                        if (pazymiai[rasvard][nr - 1] < minpaz || pazymiai[rasvard][nr - 1] > maxpaz){
+                        cout<<"Maksimalus galimas pazymys yra "<<maxpaz<<endl;
+
+                    }
+                    
+                    }while(pazymiai[rasvard][nr - 1] < minpaz || pazymiai[rasvard][nr - 1] > maxpaz);
+                    cout << "Pazymys atnaujintas."<<endl;
                 }
             }
                 break;
@@ -173,16 +189,16 @@ int main(){
                 }
             }
             studentuSk--;
-            cout << "Studentas pasalintas.\n";
+            cout << "Studentas pasalintas."<<endl;
         }
                 break;
             }
 
             case 0:
-                cout << "Iseinama is programos.\n";
+                cout << "Iseinama is programos."<<endl;
                 break;
             default:
-             cout << "Neteisingas pasirinkimas.\n";
+             cout << "Neteisingas pasirinkimas."<<endl;
                 break;
     }
     } while (pasirinkimas != 0);
